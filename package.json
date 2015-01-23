@@ -1,0 +1,42 @@
+{
+  "name": "dependency-list",
+  "description": "Given a list of modules, recursively retrieve their dependencies and generate a flat list of each module's version's",
+  "version": "0.0.1",
+  "main": "index.js",
+  "browser": "index.js",
+  "dependencies": {
+    "flatten": "0.0.1",
+    "map-async": "^0.1.1",
+    "npm-stats": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {},
+  "author": {
+    "name": "Funerr",
+    "email": "thefunerr@gmail.com",
+    "url": ""
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "bugs": {
+    "url": "/issues"
+  },
+  "homepage": "https://github.com/",
+  "keywords": [
+    "npm",
+    "dependency",
+    "list",
+    "flat",
+    "meta",
+    "data"
+  ],
+  "maintainers": [
+    {
+      "name": "funerr",
+      "email": "thefunerr@gmail.com"
+    }
+  ]
+}
