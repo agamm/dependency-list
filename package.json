@@ -19,12 +19,12 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "https://github.com/funerr/dependency-list"
   },
   "bugs": {
-    "url": "/issues"
+    "url": "https://github.com/funerr/dependency-list/issues"
   },
-  "homepage": "https://github.com/",
+  "homepage": "https://github.com/funerr/dependency-list",
   "keywords": [
     "npm",
     "dependency",
