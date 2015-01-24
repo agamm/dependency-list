@@ -3,7 +3,7 @@
 Given a list of packages, recursively retrieve their dependencies and generate a flat list of each package's version's
 
 ## Usage ##
-`npm install dependency-list`
+`npm install --save dependency-list`
 
 ### `getDependencies(packages, callback)`
 

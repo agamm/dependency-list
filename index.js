@@ -1,105 +1,86 @@
 var stats	 = require('npm-stats')();
 var map		 = require('map-async');
-var flatten = require('flatten');
 
 module.exports = getDependencies;
 
 function getDependencies(packagesObject, done) {
 	var results = {};
 
-	if(typeof packagesObject !== 'Object') {
+	if(!packagesObject instanceof Object ||
+			packagesObject instanceof Array) {
 		done(new Error('Packages are not an Object'));
 		return;
 	}
 
-	packagesObject = objectStructureArray(packagesObject);
-
-	grab(packagesObject, function(err) {
+	grab(packagesObject, function ready(err) {
 		done(err, !err && results);
 	});
 
-	function keys(obj) {
-		return Object.keys(obj);
-	}
-
-	function objectStructureArray(obj) {
-		if(keys(obj).length === 1) {
-			return obj;
-		}
-
-		var newObj = [];
-		 keys(obj).forEach(function(key) {
-			var o = {};
-			o[key] = obj[key];
-			newObj.push(o);
-		});
-		 
-		return newObj;
-	}
-
-	function inArraySubstring(heystack, needle) {
-		return heystack.filter(function(hey) {
-			if(hey.indexOf(needle) > -1) {
-				return true;
-			}
-			return false;
-		}).length > 0;
-	}
-
 	function grab(packages, ready) {
-		console.log(packages);
-		map(packages, function(packageVersion, packageName, next) {
-			console.log(packageName, packageVersion);
+		map(packages, function iterator(packageVersion, packageName, next) {
 			name = packageName;
 			version = packageVersion;
-			//console.log("MODULE:", name, version);
 
-			// Append a version if one does not exist
-			if(results.hasOwnProperty(name)){
+			// Append version
+			if(results.hasOwnProperty(name)
+				&& results[name].length > 1){
+
 				if(results[name].indexOf(version) === -1){
 					results[name].push(version);
 				} else {
-					next();
+					next(null);
 				}
 			} else {
 				results[name] = [version];
 			}
 
 			stats.module(name).version(version, function(err, pkg) {
-				if (err) return next(err)
+				if (err) { return next(err); }
 
-				// Extract the dependencies of the package
-				var dependencies = [];
+				var dependencies = {};
 				if(pkg.hasOwnProperty('dependencies') 
 					&& keys(pkg.dependencies).length !== 0) {
 					dependencies = pkg.dependencies;
-
-					// Fix structure
-					//console.log(pkg.name,": ",dependencies)
-					dependencies = objectStructureArray(dependencies);
 				}
-				
+
 				// Fix latest version
 				results[pkg.name].forEach(function(ver, i) {
-					if(ver === "x" || ver === '*') {
-						results[pkg.name][i] = pkg.version;
+					if(ver === "x" || ver === "*") {
+						results[name][i] = pkg.version;
 					}
-				});
+				})
 
 				next(null, dependencies);
 			})
-		}, function lastly(err, deps) {
-
+		}, function finish(err, deps) {
 			if (err) {
 				return ready(err);
 			}
+			deps = flattenObject(deps);
 
-			deps = flatten(deps);
-			deps = deps.filter(Boolean);
-
-			return deps.length
+			return keys(deps).length
 				? grab(deps, ready)
-				: ready();
-		})
+				: ready(false);
+		});
+	}
+
+	function keys(obj) {
+		return Object.keys(obj);
+	}
+
+	function extend(destination, source) {
+		for (var property in source) {
+			destination[property] = source[property];
+		}
+		return destination;
+	}
+
+	function flattenObject(obj) {
+		var n = {};
+		keys(obj).forEach(function(key) {
+			extend(n, obj[key]);
+		});
+
+		return n;
 	}
 }
