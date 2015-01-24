@@ -4,14 +4,17 @@ var flatten = require('flatten');
 
 module.exports = getDependencies;
 
-function getDependencies(modules, done) {
+function getDependencies(packagesObject, done) {
 	var results = {};
 
-	modules = Array.isArray(modules)
-		? modules
-		:[modules];
+	if(typeof packagesObject !== 'Object') {
+		done(new Error('Packages are not an Object'));
+		return;
+	}
 
-	grab(modules, function(err) {
+	packagesObject = objectStructureArray(packagesObject);
+
+	grab(packagesObject, function(err) {
 		done(err, !err && results);
 	});
 
@@ -43,10 +46,12 @@ function getDependencies(modules, done) {
 		}).length > 0;
 	}
 
-	function grab(modules, ready) {
-		map(modules, function(package, index, next) {
-			name = keys(package)[0];
-			version = package[name];
+	function grab(packages, ready) {
+		console.log(packages);
+		map(packages, function(packageVersion, packageName, next) {
+			console.log(packageName, packageVersion);
+			name = packageName;
+			version = packageVersion;
 			//console.log("MODULE:", name, version);
 
 			// Append a version if one does not exist
@@ -76,7 +81,7 @@ function getDependencies(modules, done) {
 				
 				// Fix latest version
 				results[pkg.name].forEach(function(ver, i) {
-					if(ver === "x") {
+					if(ver === "x" || ver === '*') {
 						results[pkg.name][i] = pkg.version;
 					}
 				});
@@ -84,6 +89,7 @@ function getDependencies(modules, done) {
 				next(null, dependencies);
 			})
 		}, function lastly(err, deps) {
+
 			if (err) {
 				return ready(err);
 			}
