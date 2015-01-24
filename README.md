@@ -8,10 +8,12 @@ Given a list of packages, recursively retrieve their dependencies and generate a
 ### `getDependencies(packages, callback)`
 
 ```
+var getDependencies = require('dependency-list');
+
 // Show me the (latest => x) express dependencies
 getDependencies({'express': 'x'}, function(err, results) {
-  console.log(results);
-  console.log(Object.keys(results).length)
+    console.log(results);
+    console.log(Object.keys(results).length)
 });
 ```
 
