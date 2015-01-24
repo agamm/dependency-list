@@ -1,7 +1,7 @@
 {
   "name": "dependency-list",
-  "description": "Given a list of modules, recursively retrieve their dependencies and generate a flat list of each module's version's",
-  "version": "0.0.1",
+  "description": "Given a list of packages, recursively retrieve their dependencies and generate a flat list of each package's version's",
+  "version": "0.0.2",
   "main": "index.js",
   "browser": "index.js",
   "dependencies": {

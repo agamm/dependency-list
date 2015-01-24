@@ -1,6 +1,6 @@
 # dependency-list [![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #
 
-Given a list of modules, recursively retrieve their dependencies and generate a flat list of each module's version's
+Given a list of packages, recursively retrieve their dependencies and generate a flat list of each package's version's
 
 ## Usage ##
 `npm install dependency-list`

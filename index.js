@@ -30,6 +30,7 @@ function getDependencies(modules, done) {
 			o[key] = obj[key];
 			newObj.push(o);
 		});
+		 
 		return newObj;
 	}
 
