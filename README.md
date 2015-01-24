@@ -10,8 +10,8 @@ Given a list of packages, recursively retrieve their dependencies and generate a
 ```
 var getDependencies = require('dependency-list');
 
-// Show me the (latest => x) express dependencies
-getDependencies({'express': 'x'}, function(err, results) {
+// Show me the (latest => x/*) express dependencies
+getDependencies({'express': 'x', 'bluebird': '*'}, function(err, results) {
     console.log(results);
     console.log(Object.keys(results).length)
 });
@@ -66,5 +66,5 @@ MIT. See [LICENSE.md](http://github.com/hughsk/npm-flat-graph/blob/master/LICENS
 
 
 ## Origin ##
-This package is based from the awesome: `npm-flat-graph` package, go check it out:  
+This package is based of the awesome: `npm-flat-graph` package, go check it out:  
 https://www.npmjs.com/package/npm-flat-graph
