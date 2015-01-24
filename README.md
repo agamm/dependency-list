@@ -12,12 +12,13 @@ Given a list of packages, recursively retrieve their dependencies and generate a
 getDependencies({'express': 'x'}, function(err, results) {
   console.log(results);
   console.log(Object.keys(results).length)
-});```
+});
+```
 
 This function takes an array of `packages` by name, calling `callback(err, results)`
 when complete, supplying you with an index formatted like so:
 
-``` javascript
+``` 
 {
     "express": ["5.0.0-alpha.1"],
     "accepts": ["~1.1.2"],
