@@ -46,7 +46,7 @@ function getDependencies(packagesObject, done) {
 				// Fix latest version
 				results[pkg.name].forEach(function(ver, i) {
 					if(ver === "x" || ver === "*") {
-						results[name][i] = pkg.version;
+						results[pkg.name][i] = pkg.version;
 					}
 				})
 
