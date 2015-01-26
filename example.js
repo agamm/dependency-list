@@ -1,11 +1,6 @@
 var getDependencies = require('./index.js');
 
-// Show me the (latest => x) express dependencies
-getDependencies({'express': '*', 'bluebird': 'x'}, function(err, results) {
-	if(err) {
-		console.error(err);
-	} else {
-		console.log(results);
-		console.log(Object.keys(results).length);
-	}
+getDependencies({'express': 'x', 'bluebird': '2.9.2'}, function(err, results) {
+    if(err) { throw err; }
+    console.log(results);
 });

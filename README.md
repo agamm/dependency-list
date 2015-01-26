@@ -16,12 +16,13 @@ getDependencies({'express': 'x', 'bluebird': '2.9.2'}, function(err, results) {
 });
 ```
 
-This function takes an array of `packages` by name, calling `callback(err, results)`
-when complete, supplying you with an index formatted like so:
+This function takes an object of `packages` by name, calling `callback(err, results)`
+when complete, supplying you with an object formatted like so:
 
 ``` 
 {
     "express": ["5.0.0-alpha.1"],
+    "bluebird": ["2.9.2"],
     "accepts": ["~1.1.2"],
     "content-disposition": ["0.5.0"],
     "cookie-signature": ["1.0.5"],
@@ -46,7 +47,7 @@ when complete, supplying you with an index formatted like so:
     "cookie": ["0.1.2"],
     "merge-descriptors": ["0.0.2"],
     "utils-merge": ["1.0.0"],
-    "mime-types": ["~2.0.4", "~2.0.7"],
+    "mime-types": ["~2.0.7"],
     "negotiator": ["0.4.9"],
     "ms": ["0.6.2"],
     "crc": ["3.2.1"],
