@@ -5,15 +5,14 @@ Given a list of packages, recursively retrieve their dependencies and generate a
 ## Usage ##
 `npm install --save dependency-list`
 
-### `getDependencies(packages, callback)`
+## `getDependencies(packages, callback)`
 
 ```
 var getDependencies = require('dependency-list');
 
-// Show me the (latest => x/*) express dependencies
-getDependencies({'express': 'x', 'bluebird': '*'}, function(err, results) {
+getDependencies({'express': 'x', 'bluebird': '2.9.2'}, function(err, results) {
+    if(err) { throw err; }
     console.log(results);
-    console.log(Object.keys(results).length)
 });
 ```
 
@@ -59,6 +58,11 @@ when complete, supplying you with an index formatted like so:
     "mime-db": ["~1.5.0"]
 }
 ```
+
+## Todo ##
+* Add unit testing
+* Accept array as input
+* Add options (exclude, include devDependencies)
 
 ## License ##
 
