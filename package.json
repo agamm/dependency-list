@@ -26,12 +26,8 @@
   "homepage": "https://github.com/funerr/dependency-list",
   "keywords": [
     "dependency",
-    "list",
-    "npm",
-    "dependencies",
     "flat",
-    "meta",
-    "data"
+    "list"
   ],
   "maintainers": [
     {
