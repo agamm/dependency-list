@@ -5,7 +5,7 @@ Given a list of packages, recursively retrieve their dependencies and generate a
 ## Usage ##
 `npm install --save dependency-list`
 
-## `getDependencies(packages, callback)`
+## Example
 
 ```
 var getDependencies = require('dependency-list');
