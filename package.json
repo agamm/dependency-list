@@ -8,8 +8,12 @@
     "map-async": "^0.1.1",
     "npm-stats": "^1.1.0"
   },
-  "devDependencies": {},
-  "scripts": {},
+  "devDependencies": {
+    "chai": "^1.10.0"
+  },
+  "scripts": {
+    "test": "mocha test.js"
+  },
   "author": {
     "name": "Funerr",
     "email": "thefunerr@gmail.com",
