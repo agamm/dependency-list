@@ -8,8 +8,7 @@ function getDependencies(packagesObject, done) {
 
 	if(!packagesObject instanceof Object ||
 			packagesObject instanceof Array) {
-		done(new Error('Packages are not an Object'));
-		return;
+		throw new Error('Packages are not an Object');
 	}
 
 	grab(packagesObject, function ready(err) {

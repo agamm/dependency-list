@@ -61,7 +61,6 @@ when complete, supplying you with an object formatted like so:
 ```
 
 ## Todo ##
-* Add unit testing
 * Accept array as input
 * Add options (exclude, include devDependencies)
 
