@@ -1,6 +1,6 @@
-# dependency-list [![experimental](http://hughsk.github.io/stability-badges/dist/experimental.svg)](http://github.com/hughsk/stability-badges) #
+# dependency-list [![Build Status](https://travis-ci.org/funerr/dependency-list.svg?branch=master)](https://travis-ci.org/funerr/dependency-list)
 
-Given a list of packages, recursively retrieve their dependencies and generate a flat list of each package's version's
+Given a list of packages, recursively retrieve their dependencies and generate a flat list of each dependency and its corresponding version.
 
 ## Usage ##
 `npm install --save dependency-list`
@@ -16,8 +16,7 @@ getDependencies({'express': 'x', 'bluebird': '2.9.2'}, function(err, results) {
 });
 ```
 
-This function takes an object of `packages` by name, calling `callback(err, results)`
-when complete, supplying you with an object formatted like so:
+This function takes an object of `packages` by name, when complete it will supply an object formatted like so:
 
 ``` 
 {
