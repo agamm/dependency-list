@@ -67,7 +67,7 @@ when complete, supplying you with an object formatted like so:
 
 ## License ##
 
-MIT. See [LICENSE.md](http://github.com/hughsk/npm-flat-graph/blob/master/LICENSE.md) for details.
+WTFPL. See [LICENSE.md](https://github.com/funerr/dependency-list/blob/master/LICENSE.md) for details.
 
 
 ## Origin ##
