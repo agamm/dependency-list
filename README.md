@@ -1,8 +1,10 @@
-# dependency-list [![Build Status](https://travis-ci.org/funerr/dependency-list.svg?branch=master)](https://travis-ci.org/funerr/dependency-list)
+# dependency-list 
+
+[![Build Status](https://travis-ci.org/funerr/dependency-list.svg)](https://travis-ci.org/funerr/dependency-list)
 
 Given a list of packages, recursively retrieve their dependencies and generate a flat list of each dependency and its corresponding version.
 
-## Usage ##
+## Usage
 `npm install --save dependency-list`
 
 ## Example
@@ -16,7 +18,7 @@ getDependencies({'express': 'x', 'bluebird': '2.9.2'}, function(err, results) {
 });
 ```
 
-This function takes an object of `packages` by name, when complete it will supply an object formatted like so:
+This function takes an object of `packages` by name, upon completion it will supply an object formatted like so:
 
 ``` 
 {
@@ -59,15 +61,15 @@ This function takes an object of `packages` by name, when complete it will suppl
 }
 ```
 
-## Todo ##
-* Accept array as input
+## Todo
+* Accept array as input (?)
 * Add options (exclude, include devDependencies)
 
-## License ##
+## License
 
 WTFPL. See [LICENSE.md](https://github.com/funerr/dependency-list/blob/master/LICENSE.md) for details.
 
 
-## Origin ##
+## Origin
 This package is based of the awesome: `npm-flat-graph` package, go check it out:  
 https://www.npmjs.com/package/npm-flat-graph
