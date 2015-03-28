@@ -3,7 +3,7 @@ var map		 = require('map-async');
 
 module.exports = getDependencies;
 
-function getDependencies(packagesObject, done, options) {
+function getDependencies(packagesObject, done) {
 	var results = {};
 
 	if(!packagesObject instanceof Object ||
@@ -17,24 +17,21 @@ function getDependencies(packagesObject, done, options) {
 
 	function grab(packages, ready) {
 		map(packages, function iterator(packageVersion, packageName, next) {
-			name = packageName;
-			version = packageVersion;
 
-			// Append version
-			if(results.hasOwnProperty(name)
-				&& results[name].length > 0){
-
-				if(results[name].indexOf(version) === -1){
-					results[name].push(version);
-				} else {
-					next(null);
-				}
-			} else {
-				results[name] = [version];
-			}
-
-			stats.module(name).version(version, function(err, pkg) {
+			stats.module(packageName).version(packageVersion, function(err, pkg) {
 				if (err) { return next(err); }
+
+				if(results.hasOwnProperty(pkg.name)
+					&& results[pkg.name].length > 0){
+
+					if(results[pkg.name].indexOf(pkg.version) === -1){
+						results[pkg.name].push(pkg.version);
+					} else {
+						next(null);
+					}
+				} else {
+					results[pkg.name] = [pkg.version];
+				}
 
 				var dependencies = {};
 				if(pkg.hasOwnProperty('dependencies') 
@@ -50,7 +47,7 @@ function getDependencies(packagesObject, done, options) {
 				})
 
 				next(null, dependencies);
-			})
+			});
 		}, function finish(err, deps) {
 			if (err) {
 				return ready(err);

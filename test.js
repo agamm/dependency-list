@@ -60,13 +60,13 @@ describe('dependency-list', function(){
 			if(err) { throw err; }
 			var expectedResult = {
 				"glob":["4.3.5"],
-				"inflight":["^1.0.4"],
-				"inherits":["2"],
-				"minimatch":["^2.0.1"],
-				"once":["^1.3.0"],
-				"wrappy":["1"],
-				"brace-expansion":["^1.0.0"],
-				"balanced-match":["^0.2.0"],
+				"inflight":["1.0.4"],
+				"inherits":["2.0.1"],
+				"minimatch":["2.0.4"],
+				"once":["1.3.1"],
+				"wrappy":["1.0.1"],
+				"brace-expansion":["1.1.0"],
+				"balanced-match":["0.2.0"],
 				"concat-map":["0.0.1"]
 			};
 			expect(results).to.be.an('object');
@@ -76,5 +76,25 @@ describe('dependency-list', function(){
 		});
 	});
 
+	it('should append versios when more than one is returned', function(done){
+		this.timeout(10000);
+		getDependencies({'ms': '0.1.0','humanize-ms': '1.0.1'}, function(err, results) {
+
+			if(err) { throw err; }
+			var expectedResult = {
+				"humanize-ms": [
+					"1.0.1"
+				],
+				"ms":[
+					"0.1.0",
+					"0.6.2"
+				]
+			};
+			expect(results).to.be.an('object');
+			expect(results).to.not.be.empty();
+			expect(results).to.deep.equal(expectedResult);
+			done();
+		});
+	});
   });
 });
