@@ -37,13 +37,6 @@ function getDependencies(packagesObject, done) {
 					dependencies = pkg.dependencies;
 				}
 
-				// Fix latest version
-				results[pkg.name].forEach(function(ver, i) {
-					if(ver === "x" || ver === "*") {
-						results[pkg.name][i] = pkg.version;
-					}
-				})
-
 				next(null, dependencies);
 			});
 		}, function finish(err, deps) {
