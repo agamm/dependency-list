@@ -21,49 +21,49 @@ getDependencies({'express': 'x', 'bluebird': '2.9.2'}, function(err, results) {
 This function takes an object of `packages` by name, upon completion it will supply an object formatted like so:
 
 ``` 
-{
-    "express": ["5.0.0-alpha.1"],
-    "bluebird": ["2.9.2"],
-    "accepts": ["~1.1.2"],
-    "content-disposition": ["0.5.0"],
-    "cookie-signature": ["1.0.5"],
-    "debug": ["~2.1.0"],
-    "depd": ["~1.0.0"],
-    "escape-html": ["1.0.1"],
-    "etag": ["~1.5.0"],
-    "finalhandler": ["0.3.2"],
-    "fresh": ["0.2.4"],
-    "media-typer": ["0.3.0"],
-    "methods": ["1.1.0"],
-    "on-finished": ["~2.1.1"],
-    "parseurl": ["~1.3.0"],
-    "path-to-regexp": ["0.1.3"],
-    "proxy-addr": ["~1.0.3"],
-    "qs": ["2.3.2"],
-    "range-parser": ["~1.0.2"],
-    "send": ["0.10.1"],
-    "serve-static": ["~1.7.1"],
-    "type-is": ["~1.5.2"],
-    "vary": ["~1.0.0"],
-    "cookie": ["0.1.2"],
-    "merge-descriptors": ["0.0.2"],
-    "utils-merge": ["1.0.0"],
-    "mime-types": ["~2.0.9"],
-    "negotiator": ["0.4.9"],
-    "ms": ["0.6.2","0.7.0"],
-    "crc": ["3.2.1"],
-    "ee-first": ["1.1.0"],
-    "forwarded": ["~0.1.0"],
-    "ipaddr.js": ["0.1.9"],
-    "destroy": ["1.0.3"],
-    "mime": ["1.2.11"],
-    "mime-db": ["~1.8.0"]
+{ 
+  bluebird: [ '2.9.2' ],
+  express: [ '5.0.0-alpha.1' ],
+  depd: [ '1.0.0' ],
+  'content-disposition': [ '0.5.0' ],
+  'cookie-signature': [ '1.0.5' ],
+  accepts: [ '1.1.4' ],
+  debug: [ '2.1.3' ],
+  'escape-html': [ '1.0.1' ],
+  etag: [ '1.5.1' ],
+  finalhandler: [ '0.3.2' ],
+  fresh: [ '0.2.4' ],
+  'media-typer': [ '0.3.0' ],
+  methods: [ '1.1.0' ],
+  'on-finished': [ '2.1.1' ],
+  parseurl: [ '1.3.0' ],
+  'path-to-regexp': [ '0.1.3' ],
+  'proxy-addr': [ '1.0.7' ],
+  qs: [ '2.3.2' ],
+  'range-parser': [ '1.0.2' ],
+  send: [ '0.10.1' ],
+  'serve-static': [ '1.7.2' ],
+  vary: [ '1.0.0' ],
+  'type-is': [ '1.5.7' ],
+  cookie: [ '0.1.2' ],
+  'merge-descriptors': [ '0.0.2' ],
+  'utils-merge': [ '1.0.0' ],
+  'mime-types': [ '2.0.10' ],
+  crc: [ '3.2.1' ],
+  ms: [ '0.6.2', '0.7.0' ],
+  negotiator: [ '0.4.9' ],
+  forwarded: [ '0.1.0' ],
+  'ee-first': [ '1.1.0' ],
+  'ipaddr.js': [ '0.1.9' ],
+  destroy: [ '1.0.3' ],
+  mime: [ '1.2.11' ],
+  'mime-db': [ '1.8.0' ] 
 }
 ```
 
 ## Todo
 * Accept array as input (?)
-* Add options (exclude, include devDependencies, resolve version)
+* Add options (exclude, include devDependencies)
 
 ## License
 

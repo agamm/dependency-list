@@ -26,8 +26,6 @@ function getDependencies(packagesObject, done) {
 
 					if(results[pkg.name].indexOf(pkg.version) === -1){
 						results[pkg.name].push(pkg.version);
-					} else {
-						next(null);
 					}
 				} else {
 					results[pkg.name] = [pkg.version];
