@@ -48,22 +48,22 @@ This function takes an object of `packages` by name, upon completion it will sup
     "cookie": ["0.1.2"],
     "merge-descriptors": ["0.0.2"],
     "utils-merge": ["1.0.0"],
-    "mime-types": ["~2.0.7"],
+    "mime-types": ["~2.0.9"],
     "negotiator": ["0.4.9"],
-    "ms": ["0.6.2"],
+    "ms": ["0.6.2","0.7.0"],
     "crc": ["3.2.1"],
     "ee-first": ["1.1.0"],
     "forwarded": ["~0.1.0"],
-    "ipaddr.js": ["0.1.6"],
+    "ipaddr.js": ["0.1.9"],
     "destroy": ["1.0.3"],
     "mime": ["1.2.11"],
-    "mime-db": ["~1.5.0"]
+    "mime-db": ["~1.8.0"]
 }
 ```
 
 ## Todo
 * Accept array as input (?)
-* Add options (exclude, include devDependencies)
+* Add options (exclude, include devDependencies, resolve version)
 
 ## License
 

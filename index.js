@@ -3,7 +3,7 @@ var map		 = require('map-async');
 
 module.exports = getDependencies;
 
-function getDependencies(packagesObject, done) {
+function getDependencies(packagesObject, done, options) {
 	var results = {};
 
 	if(!packagesObject instanceof Object ||
@@ -22,7 +22,7 @@ function getDependencies(packagesObject, done) {
 
 			// Append version
 			if(results.hasOwnProperty(name)
-				&& results[name].length > 1){
+				&& results[name].length > 0){
 
 				if(results[name].indexOf(version) === -1){
 					results[name].push(version);
